@@ -9,23 +9,6 @@ import matplotlib.cm as cm
 import cmocean
 import netCDF4 as nc
 
-class fort14():
-    def __init__(self, fname):
-        self.df = pd.read_csv(fname, sep="\s+", names=list('abcde'),on_bad_lines='skip')
-        self.num_nodes = int(self.df['b'][1])
-        self.num_elems = int(self.df['a'][1])
-
-        self.x = self.df['b'][2:2+self.num_nodes].to_numpy()
-        self.y = self.df['c'][2:2+self.num_nodes].to_numpy()
-
-    def is_in_mesh(self, x, y):
-        min_x = np.min(self.x)
-        max_x = np.max(self.x)
-
-        min_y = np.min(self.y)
-        max_y = np.max(self.y)
-
-        return (x >= min_x and x <= max_x) and (y >= min_y and y <= max_y)
 
 def read14(fname):
     return pd.read_csv(fname, delim_whitespace=True, names=list('abcde'),on_bad_lines='skip')
