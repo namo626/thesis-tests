@@ -81,4 +81,40 @@ f14 = Fort14("120m_nolevee/PE0571/fort.14")
 
 
 class Fort63():
-    pass
+    def __init__(self, fname) -> None:
+        df = pd.read_csv(fname, sep="\s+", names=list('abcdefg'), index_col=False)
+
+        self.df = df
+        self.num_nodes = int(self.df['b'][1])
+        self.timesteps = int(self.df['a'][1])
+        self.node_indices = self.df['a'][3:3+self.num_nodes]
+
+        data = self.df.iloc[2:,:2].reset_index(drop=True)
+        self.data = data.drop(np.arange(0, len(data), self.num_nodes+1))
+        self.data['a'] = self.data['a'].astype(int)
+        self.data['b'] = self.data['b'].astype(float)
+        self.data = self.data.astype('object')
+        self.data = self.data.to_numpy()
+
+        assert len(self.data) / self.num_nodes == self.timesteps
+
+        renum = self.renumber()
+
+    def renumber(self):
+        """Return an array with true node indices."""
+
+        true_node_indices = np.arange(self.num_nodes) + 1
+        copy = self.data.copy()
+        copies = np.split(copy, self.timesteps)
+
+        for i in range(len(copies)):
+            copies[i][:,0] = true_node_indices
+
+        return np.vstack(copies)
+
+    def true_df(self):
+        renum = self.renumber()
+
+
+
+f63 = Fort63("120m_nolevee/PE0571/fort.63")
