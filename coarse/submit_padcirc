@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J harvey
+#SBATCH -A ADCIRC
+#SBATCH -o run.out
+#SBATCH -e run.err
+#SBATCH -p development
+#SBATCH -N 10
+#SBATCH -n 512
+#SBATCH -t 02:00:00
+#SBATCH --mail-user=namo26june@gmail.com
+#SBATCH --mail-type=begin        # email me when the job starts
+#SBATCH --mail-type=end          # email me when the job finishes
+date>run.timing
+#ibrun ./padcirc
+ibrun ./adc
+date>>run.timing
