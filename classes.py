@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import numpy as np
 import pandas as pd
+import netCDF4 as nc
 
 
 class Fort14():
@@ -78,52 +79,3 @@ class Fort14():
 
 
 f14 = Fort14("120m_nolevee/PE0571/fort.14")
-
-
-class Fort63():
-    def __init__(self, fname) -> None:
-        df = pd.read_csv(fname, sep="\s+", names=list('abcdefg'), index_col=False)
-
-        self.df = df
-        self.num_nodes = int(self.df['b'][1])
-        self.timesteps = int(self.df['a'][1])
-        self.node_indices = self.df['a'][3:3+self.num_nodes]
-
-        data = self.df.iloc[2:,:2].reset_index(drop=True)
-        ts = np.arange(0, len(data), self.num_nodes+1)
-
-        self.times = data.iloc[ts,:].to_numpy()
-        self.times[:,1] = self.times[:,1].astype(int)
-        self.times[:,0] = self.times[:,0].astype(float)
-        self.data = data.drop(np.arange(0, len(data), self.num_nodes+1))
-        self.data['a'] = self.data['a'].astype(int)
-        self.data['b'] = self.data['b'].astype(float)
-        self.data = self.data.astype('object')
-        self.data = self.data.to_numpy()
-
-        assert len(self.data) / self.num_nodes == self.timesteps
-
-        self.renum = self.renumber()
-
-
-    def renumber(self):
-        """Return an array with true node indices."""
-
-        true_node_indices = np.arange(self.num_nodes) + 1
-        copy = self.data.copy()
-        copies = np.split(copy, self.timesteps)
-
-        for i in range(len(copies)):
-            copies[i][:,0] = true_node_indices
-            copies[i] = np.vstack((self.times[i], copies[i]))
-
-        return np.vstack(copies)
-
-
-    def write(self, fname):
-        copy = self.df.copy()
-        copy.iloc[2:,:2] = self.renum
-        copy.to_csv(fname, index=False, header=False, sep="\t")
-
-
-f63 = Fort63("120m_nolevee/PE0571/fort.63")
