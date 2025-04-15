@@ -8,7 +8,7 @@ Run_001
 511114        	 ! IM 
 1        	 ! NOLIBF 
 2        	 ! NOLIFA 
-0        	 ! NOLICA 
+1        	 ! NOLICA 
 1        	 ! NOLICAT 
 0        	 ! NWP 
 1   	 	 ! NCOR 

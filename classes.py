@@ -34,6 +34,9 @@ class Fort14():
 
         # TODO: renumber boundary nodes
 
+    def bounding_box(self):
+        return [np.min(self.x), np.max(self.x), np.min(self.y), np.max(self.y)]
+
     def is_in_mesh(self, x, y):
         """Return True if the point x,y is contained in the mesh.
         """
