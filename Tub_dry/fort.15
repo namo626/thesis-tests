@@ -5,7 +5,7 @@
  1000                                      ! NSCREEN - OUTPUT TO UNIT 6 PARAMETER
  0 ! IHOT - parameter fort hot start, 0=cold, 67-read fort.67 (binary)
  2 ! ICS - COORDINATE SYSTEM SELECTION PARAMETER
- 111114                                        ! IM - MODEL RUN TYPE: 0=2DDI, 1=3DL(VS), 2=3DL(DSS)
+ 5                                        ! IM - MODEL RUN TYPE: 0=2DDI, 1=3DL(VS), 2=3DL(DSS)
  2                                        ! NOLIBF - NONLINEAR BOTTOM FRICTION OPTION
  2                                        ! NOLIFA - OPTION TO INCLUDE FINITE AMPLITUDE TERMS
  1                               ! NOLICA - OPTION TO INCLUDE CONVECTIVE ACCELERATION TERMS
@@ -39,7 +39,7 @@
  2  					! NSTAV - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
  -359.5508472576  0.0359322194   
   -359.5508472576     0.0000000000   
- -1 0.0 12.42 20 			! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE:GLOBAL ELEV OUTPUT INFO (UNIT  63)
+ -1 0.0 12.42 100 			! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE:GLOBAL ELEV OUTPUT INFO (UNIT  63)
  1 0.0 12.42 2000 			! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV:GLOBAL
 10                                       ! NHARF - NUMBER OF FREQENCIES IN HARMONIC ANALYSIS
  steady                                   ! HAFNAM - ALPHA DESCRIPTOR FOR CONSTITUENT NAME

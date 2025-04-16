@@ -8,7 +8,7 @@ Run_001
 511114        	 ! IM 
 1        	 ! NOLIBF 
 2        	 ! NOLIFA 
-0        	 ! NOLICA 
+1        	 ! NOLICA 
 1        	 ! NOLICAT 
 0        	 ! NWP 
 1   	 	 ! NCOR 
@@ -2705,7 +2705,7 @@ K2
 0  	 	 ! NSTAV 
 0 0.00 55.0 16             ! NOUTM,TOUTSM,TOUTFM,NSPOOLM:MET STATION OUTPUT INFO (UNIT 71)
 0                          ! TOTAL NUMBER OF meteorological recording stations
--5 0 100 1000  	 ! NOUTGE, ... 
+3 0 100 1000  	 ! NOUTGE, ... 
 0 0 0 0  	 ! NOUTGV, ... 
 0 0  90  120               ! NOUTGW,TOUTSGW,TOUTFGW,NSPOOLGW : GLOBAL WIND  OUTPUT (UNIT  74)
 8  	 	 ! NFREQ 
