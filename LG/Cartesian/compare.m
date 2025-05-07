@@ -7,30 +7,60 @@ DATA.n        = 0;                   % Bathymetric power
 DATA.amp      = 0.3;                 % Tidal amplitude of forcing
 DATA.freq     = 2*pi*1/(12.4*3600);  % Tidal frequency of forcing (Note: this frequency corresponds to an M2 tide)
 DATA.phase    = 0;                   % Tidal Phase of forcing
-DATA.tau      = 0.0025;                   % Linear bottom friction factor
+DATA.tau      = 0.005;                   % Linear bottom friction factor
 DATA.g        = 9.81;
 
 T = 5*86400; % seconds
-dt = 2;
+dt = 1;
 noutge = 360;
 frames = T / (dt*noutge);
+hs = [1875 3750 7500 15000];
 
-%% 
-coords = m.p;
+%% Loop through different meshes
+err_zeta = [];
+err_eta = [];
+ms = [1 2];
+for k = ms
+    dataset = ['Mesh' num2str(k)];
+    m = msh([dataset '/fort.14']);
+    coords = m.p;
+    N = size(m.p, 1);
+    solution = [];
+    ts = linspace(0,T,frames);
+    
+    for i = 1:frames
+        solution = [solution LG2D_Solutions(coords, i*dt*noutge, DATA)];
+    end
+    zeta = ncread([dataset '/fort.63.dg.nc'], "zeta");
+    eta = ncread([dataset '/fort.63.adc.nc'], "zeta");
+    
+    
+    %% L2 norm at final snapshot
+    err_zeta = [err_zeta sqrt((1/N) * sum( (zeta(:,end-10)-solution(:,end-10)).^2))];
+    err_eta = [err_eta sqrt((1/N) * sum( (eta(:,end-10)-solution(:,end-10)).^2))];
 
-solution = [];
-ts = linspace(0,T,frames);
-
-for i = 1:frames
-    solution = [solution LG2D_Solutions(coords, i*dt*noutge, DATA)];
 end
-zeta = ncread("Mesh1/fort.63.dg.nc", "zeta");
-eta = ncread("Mesh1/fort.63.adc.nc", "zeta");
+err_zeta = fliplr(err_zeta);
+loglog(hs(ms), err_zeta, '-s', 'DisplayName', 'DG-CG');
+hold on
+err_eta = fliplr(err_eta);
+loglog(hs(ms), err_eta, '-o', 'DisplayName', 'CG');
 
-zeta_end = zeta(:,end);
+loglog(hs(ms), hs(ms).^2 / 1e9, '--', 'DisplayName', 'h^2');
+ylabel('L^2 error')
+xlabel('h (m)')
+hold off
+legend
+set(gca, 'XTick', hs)
+%xtickformat('%.1e')
+
+
+p1 = polyfit(log(hs(ms)), log(err_eta), 1);
+p2 = polyfit(log(hs(ms)), log(err_zeta), 1);
+
 
 %%
-pt = 28;
+pt = round(N/4);
 plot(ts, solution(pt,:), 'DisplayName','Analytical');
 hold on
 plot(ts ,eta(pt,:), 'DisplayName', 'ADCIRC');

@@ -5,7 +5,7 @@
  3600                                   ! NSCREEN - UNIT 6 OUTPUT OPTION PARAMETER
  0                                   ! IHOT - HOT START PARAMETER
  1                                   ! ICS - COORDINATE SYSTEM SELECTION PARAMETER
- 0                                   ! IM - MODEL SELECTION PARAMETER 
+ 4                                   ! IM - MODEL SELECTION PARAMETER 
  0                                   ! NOLIBF - BOTTOM FRICTION TERM SELECTION PARAMETER
  0                                   ! NOLIFA - FINITE AMPLITUDE TERM SELECTION PARAMETER
  0                                   ! NOLICA - SPATIAL DERIVATIVE CONVECTIVE SELECTION PARAMETER
@@ -17,7 +17,7 @@
  0                                   ! NRAMP - RAMP FUNCTION OPTION
  9.81                                ! G - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS
  0.005                               ! TAU0 - WEIGHTING FACTOR IN GWCE
- 2 !174.656                             ! DT - TIME STEP (IN SECONDS)
+ 1 !174.656                             ! DT - TIME STEP (IN SECONDS)
  0.00                                ! STATIM - STARTING TIME (IN DAYS)
  0.00                                ! REFTIM - REFERENCE TIME (IN DAYS)
  5.0                                 ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
@@ -25,13 +25,13 @@
  0.35 0.30 0.35                      ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
  1.0                                 ! H0 - MIMINMUM CUTOFF DEPTH
  0.0 0.0                             ! SLAM0,SFEA0 - CENTER OF CPP PROJECTION (NOT USED IF ICS=1, NTIP=0, NCOR=0)
- 0.0025                              ! FFACTOR - HOMOGENEOUS LINEAR OR NONLINEAR BOTTOM FRICTION COEFFICIENT     
+ 0.0050                              ! FFACTOR - HOMOGENEOUS LINEAR OR NONLINEAR BOTTOM FRICTION COEFFICIENT     
  0.0                                 ! ESL - LATERAL EDDY VISCOSITY COEFFICIENT; IGNORED IF NWP =1
  0.0                                 ! CORI - CORIOLIS PARAMETER - IGNORED IF NCOR = 1
  0                                   ! NTIF - TOTAL NUMBER OF TIDAL POTENTIAL CONSTITUENTS BEING FORCED
  1                                   ! NBFR - TOTAL NUMBER OF FORCING FREQUENCIES ON OPEN BOUNDARIES
  M2                                  ! CONSTITUENT. 1  ALPHA DESCRIPTOR
- 0.000140525700000 1.0 0.0           ! CONSTITUENT. 1 FREQ., NODAL FACTOR, EQUIL. ARG. 
+ 0.00014075 1.0 0.0           ! CONSTITUENT. 1 FREQ., NODAL FACTOR, EQUIL. ARG. 
   M2                                 ! ALPHA NUMERIC DESCRIPTION OF OPEN BOUNDARY FORCING DATA SET WHICH FOLLOWS 
   0.3000  0.00                       ! BOUNDARY FORCING DATA FOR CONSTITUENT NO. 1 AT FIRST NODE
   0.3000  0.00

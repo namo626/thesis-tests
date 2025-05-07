@@ -3531,7 +3531,7 @@ Lynch and Gray Cartesian test case, n = 0
 2304            3     1200     1224     1225
 1        ! Number of open boundary segments
 25       ! Total number of open boundary nodes
-25       0 ! Number of nodes for open boundary 1
+25       20 ! Number of nodes for open boundary 1
 1201    
 1202    
 1203    
@@ -3559,7 +3559,7 @@ Lynch and Gray Cartesian test case, n = 0
 1225    
 3        ! Number of land boundary segments
 123      ! Total number of open boundary nodes
-25       0 ! Number of nodes for land boundary 1
+25       20 ! Number of nodes for land boundary 1
 1       
 2       
 3       
@@ -3585,7 +3585,7 @@ Lynch and Gray Cartesian test case, n = 0
 23      
 24      
 25      
-49       0 ! Number of nodes for land boundary 2
+49       20 ! Number of nodes for land boundary 2
 1       
 26      
 51      
@@ -3635,7 +3635,7 @@ Lynch and Gray Cartesian test case, n = 0
 1151    
 1176    
 1201    
-49       0 ! Number of nodes for land boundary 3
+49       20 ! Number of nodes for land boundary 3
 25      
 50      
 75      
