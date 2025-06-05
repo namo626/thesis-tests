@@ -5,7 +5,7 @@
  1000                                       ! NSCREEN - OUTPUT TO UNIT 6 PARAMETER
  0                                        ! IHOT - HOT START OPTION PARAMETER
  2                                        ! ICS - COORDINATE SYSTEM OPTION PARAMETER
- 0                                        ! IM - MODEL RUN TYPE: 0=2DDI, 1=3DL(VS), 2=3DL(DSS)
+ 511114                                        ! IM - MODEL RUN TYPE: 0=2DDI, 1=3DL(VS), 2=3DL(DSS)
  1                                        ! NOLIBF - NONLINEAR BOTTOM FRICTION OPTION
  2                                        ! NOLIFA - OPTION TO INCLUDE FINITE AMPLITUDE TERMS
  1                                        ! NOLICA - OPTION TO INCLUDE CONVECTIVE ACCELERATION TERMS
@@ -20,7 +20,7 @@
  1.0                                         ! DT - TIME STEP (IN SECONDS)
  0.0                                     ! STATIM - STARTING SIMULATION TIME IN DAYS
  0.0                                     ! REFTIME - REFERENCE TIME (IN DAYS) FOR NODAL FACTORS AND EQUILIBRIUM ARGS
- 2.00                                      ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
+ 0.10                                      ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
  1.0                                      ! DRAMP - DURATION OF RAMP FUNCTION (IN DAYS)
  0.35  0.30  0.35                         ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
  .1 5 5 0.02                          ! H0 - MINIMUM CUTOFF DEPTH

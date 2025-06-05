@@ -5,7 +5,7 @@ Run_001
 100        	 ! NSCREEN 
 0        	 ! IHOT 
 2        	 ! ICS 
-511114        	 ! IM 
+511112        	 ! IM 
 1        	 ! NOLIBF 
 2        	 ! NOLIFA 
 1        	 ! NOLICA 
@@ -21,7 +21,7 @@ Run_001
 0  	 	 ! STATIM 
 0  	 	 ! REFTIM 
  900                       ! WTIMINC - TIME INTERVAL BETWEEN STORM INPUT
-9.0   	 	 ! RNDY 
+0.005   	 	 ! RNDY 
 0  	 	 ! DRAMP 
 0 1 0  	 ! A00, B00, C00 
 0.1 0 0 0.01    	 ! H0, 2*dummy, VELMIN 

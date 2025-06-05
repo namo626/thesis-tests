@@ -81,4 +81,4 @@ class Fort14():
         copy.to_csv(fname, index=False, header=False, sep="\t")
 
 
-f14 = Fort14("120m_nolevee/PE0571/fort.14")
+#f14 = Fort14("120m_nolevee/PE0571/fort.14")
