@@ -19,7 +19,8 @@ hs = [1875 3750 7500 15000];
 %% Loop through different meshes
 err_zeta = [];
 err_eta = [];
-ms = [1 2];
+ms = [1 2 3 4];
+offset = 0;
 for k = ms
     dataset = ['Mesh' num2str(k)];
     m = msh([dataset '/fort.14']);
@@ -29,15 +30,16 @@ for k = ms
     ts = linspace(0,T,frames);
     
     for i = 1:frames
-        solution = [solution LG2D_Solutions(coords, i*dt*noutge, DATA)];
+        [ze, u, v] = LG2D_Solutions(coords, i*dt*noutge, DATA);
+        solution = [solution u];
     end
-    zeta = ncread([dataset '/fort.63.dg.nc'], "zeta");
-    eta = ncread([dataset '/fort.63.adc.nc'], "zeta");
+    zeta = ncread([dataset '/fort.64.dg.nc'], "u-vel");
+    eta = ncread([dataset '/fort.64.adc.nc'], "u-vel");
     
     
     %% L2 norm at final snapshot
-    err_zeta = [err_zeta sqrt((1/N) * sum( (zeta(:,end-10)-solution(:,end-10)).^2))];
-    err_eta = [err_eta sqrt((1/N) * sum( (eta(:,end-10)-solution(:,end-10)).^2))];
+    err_zeta = [err_zeta sqrt((1/N) * sum( (zeta(:,end-offset)-solution(:,end-offset)).^2))];
+    err_eta = [err_eta sqrt((1/N) * sum( (eta(:,end-offset)-solution(:,end-offset)).^2))];
 
 end
 err_zeta = fliplr(err_zeta);
@@ -46,7 +48,7 @@ hold on
 err_eta = fliplr(err_eta);
 loglog(hs(ms), err_eta, '-o', 'DisplayName', 'CG');
 
-loglog(hs(ms), hs(ms).^2 / 1e9, '--', 'DisplayName', 'h^2');
+loglog(hs(ms), hs(ms).^1 / 1e6, '--', 'DisplayName', 'h');
 ylabel('L^2 error')
 xlabel('h (m)')
 hold off
@@ -60,7 +62,7 @@ p2 = polyfit(log(hs(ms)), log(err_zeta), 1);
 
 
 %%
-pt = round(N/4);
+pt = round(N-15);
 plot(ts, solution(pt,:), 'DisplayName','Analytical');
 hold on
 plot(ts ,eta(pt,:), 'DisplayName', 'ADCIRC');

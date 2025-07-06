@@ -5,7 +5,7 @@
  3600                                   ! NSCREEN - UNIT 6 OUTPUT OPTION PARAMETER
  0                                   ! IHOT - HOT START PARAMETER
  1                                   ! ICS - COORDINATE SYSTEM SELECTION PARAMETER
- 4                                   ! IM - MODEL SELECTION PARAMETER 
+ 0                                   ! IM - MODEL SELECTION PARAMETER 
  0                                   ! NOLIBF - BOTTOM FRICTION TERM SELECTION PARAMETER
  0                                   ! NOLIFA - FINITE AMPLITUDE TERM SELECTION PARAMETER
  0                                   ! NOLICA - SPATIAL DERIVATIVE CONVECTIVE SELECTION PARAMETER
@@ -20,7 +20,7 @@
  1 !174.656                             ! DT - TIME STEP (IN SECONDS)
  0.00                                ! STATIM - STARTING TIME (IN DAYS)
  0.00                                ! REFTIM - REFERENCE TIME (IN DAYS)
- 1.0                                 ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
+ 5.0                                 ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
  0.0                                 ! DRAMP - DURATION OF RAMP FUNCTION (IN DAYS)
  0.35 0.30 0.35                      ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
  1.0                                 ! H0 - MIMINMUM CUTOFF DEPTH
@@ -54,7 +54,7 @@
  1                                   ! TOTAL NUMBER OF VELOCITY RECORDING STATIONS
  6.00000000000000e+004 0.00000000000000e+000 
  3 0.0 15.0 360                         ! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE : GLOBAL ELEVATION OUTPUT INFO (UNIT  63)
- 0 0.0 5.0 3                         ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV : GLOBAL VELOCITY  OUTPUT INFO (UNIT  64)    
+ 3 0.0 15.0 360                         ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV : GLOBAL VELOCITY  OUTPUT INFO (UNIT  64)    
  1                                   ! NHARFR - NUMBER OF CONSTITUENTS TO BE INCLUDED IN THE HARMONIC ANALYSIS
  M2                                  ! HAFNAM(I) - ALHPANUMERIC DESCRIPTION OF HARMONIC CONSTITUENT I=1
  0.0001405257 1.0 0.0                ! HAFREQ(I=1),HAFF(I=1),HAFACE(I=1)

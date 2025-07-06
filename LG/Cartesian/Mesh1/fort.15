@@ -5,7 +5,7 @@
  3600                                   ! NSCREEN - UNIT 6 OUTPUT OPTION PARAMETER
  0                                   ! IHOT - HOT START PARAMETER
  1                                   ! ICS - COORDINATE SYSTEM SELECTION PARAMETER
- 4                                   ! IM - MODEL SELECTION PARAMETER 
+ 0                                   ! IM - MODEL SELECTION PARAMETER 
  0                                   ! NOLIBF - BOTTOM FRICTION TERM SELECTION PARAMETER
  0                                   ! NOLIFA - FINITE AMPLITUDE TERM SELECTION PARAMETER
  0                                   ! NOLICA - SPATIAL DERIVATIVE CONVECTIVE SELECTION PARAMETER
@@ -43,7 +43,7 @@
  0 0.0 5.0  3                        ! NOUTV,TOUTSV,TOUTFV,NSPOOLV:VEL STATION OUTPUT INFO (UNIT  62)
  0                                   ! TOTAL NUMBER OF VELOCITY RECORDING STATIONS
  3 0.0 35.0 360                         ! NOUTGE,TOUTSGE,TOUTFGE,NSPOOLGE : GLOBAL ELEVATION OUTPUT INFO (UNIT  63)
- 0 0.0 35.0 3600                         ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV : GLOBAL VELOCITY  OUTPUT INFO (UNIT  64)    
+ 3 0.0 35.0 360                         ! NOUTGV,TOUTSGV,TOUTFGV,NSPOOLGV : GLOBAL VELOCITY  OUTPUT INFO (UNIT  64)    
  1                                   ! NHARFR - NUMBER OF CONSTITUENTS TO BE INCLUDED IN THE HARMONIC ANALYSIS
  M2                                  ! HAFNAM(I) - ALHPANUMERIC DESCRIPTION OF HARMONIC CONSTITUENT I=1
  0.0001405257 1.0 0.0                ! HAFREQ(I=1),HAFF(I=1),HAFACE(I=1)
